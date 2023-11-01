@@ -1,7 +1,7 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget
 from random import choice, shuffle
-
+from time import sleep
 
 app = QApplication([])
 
@@ -66,7 +66,7 @@ def check():
                 break
     else:
         lbl_result.setText("Не правильно!")
-        cur_quest.got_wrong()
+        cur_quest.get_wrong()
     RadioGroup.setExclusive(True)
 
 def switch_screen():
@@ -80,14 +80,14 @@ def switch_screen():
         AnsGroupBox.hide()
         RadioGroupBox.show()
         btn_ok.setText("Відповісти")
+def rest():
+    card_win.hide()
+    n = box_min.value() * 60
+    sleep(n)
+    card_win.show()
 
 btn_ok.clicked.connect(switch_screen)
-
-
-
-
-
-
+btn_sleep.clicked.connect(rest)
 
 card_win.show()
 
