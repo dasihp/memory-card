@@ -6,9 +6,9 @@ from time import sleep
 app = QApplication([])
 
 from card_window import *
-
+from main_window import *
 card_win.setWindowTitle("Memory card")
-card_win.resize(600, 500)
+
 card_win.setLayout(card_layout)
 
 #клас з питаннями
@@ -30,12 +30,12 @@ class Question():
 
     def get_wrong(self):
         self.count_ask += 1
-
+#сворення об'єктів запитань
 q1 = Question("Апельсин", "orange", "apple", "pineapple", "cucumber")
 q2 = Question("Знати", "know", "like", "be", "smoke")
 q3 = Question("Купити", "buy", "think", "love", "sociable")
 q4 = Question("Машина", "car", "bike", "flash", "bicycle")
-
+#списки з запитаннями та кнопками 
 radio_buttons = [rbtn1, rbtn2, rbtn3, rbtn4]
 questions = [q1, q2, q3, q4]
 #створення функцій для питань
@@ -68,7 +68,7 @@ def check():
         lbl_result.setText("Не правильно!")
         cur_quest.get_wrong()
     RadioGroup.setExclusive(True)
-
+#функція яка перемикає питання 
 def switch_screen():
     if btn_ok.text() == "Відповісти":
         check()
@@ -80,14 +80,27 @@ def switch_screen():
         AnsGroupBox.hide()
         RadioGroupBox.show()
         btn_ok.setText("Відповісти")
+#функція яка зупиняє програму на деякий час       
 def rest():
     card_win.hide()
     n = box_min.value() * 60
     sleep(n)
     card_win.show()
 
+def back_menu():
+    card_win.hide()
+    main_win.show()
+
+def to_card():
+    main_win.hide()
+    card_win.show()
+
+#підключаємо кнопки дор функцій
 btn_ok.clicked.connect(switch_screen)
 btn_sleep.clicked.connect(rest)
+btn_menu.clicked.connect(back_menu)
+btn_back.clicked.connect(to_card)
+
 
 card_win.show()
 

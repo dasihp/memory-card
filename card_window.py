@@ -81,3 +81,5 @@ card_layout.addLayout(line1, stretch = 1)
 card_layout.addLayout(line2, stretch = 2)
 card_layout.addLayout(line3, stretch = 8)
 card_layout.addLayout(line4)
+
+card_win.resize(550, 450)
