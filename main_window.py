@@ -23,7 +23,7 @@ btn_clear = QPushButton ("Очистити")
 
 
 lbl_statistics = QLabel("Статистика")
-lbl_statistics.setStyleSheet("font_size: 20px; font_weight: bold;")
+lbl_statistics.setStyleSheet("font-size: 20px; font-weight: bold;")
 
 lbl_stat = QLabel()
 
@@ -40,11 +40,11 @@ v1.addWidget(lbl_wrong_ans3)
 
 
 
-v2.addWidget(lbl_quest)
-v2.addWidget(lbl_right_ans)
-v2.addWidget(lbl_wrong_ans1)
-v2.addWidget(lbl_wrong_ans2)
-v2.addWidget(lbl_wrong_ans3)
+v2.addWidget(le_quest)
+v2.addWidget(le_right_ans)
+v2.addWidget(le_wrong_ans1)
+v2.addWidget(le_wrong_ans2)
+v2.addWidget(le_wrong_ans3)
 
 h1 = QHBoxLayout()
 h1.addLayout(v1)
